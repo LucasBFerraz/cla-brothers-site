@@ -48,6 +48,7 @@ const oficialMembers = [
   { position: 38, name: "[BROT] MANOSAUR0", category: "Membro Oficial" },
   { position: 39, name: "[BROT] CLEAR", category: "Membro Oficial" },
   { position: 40, name: "[BROT] KGBGHOST00001", category: "Membro Oficial" },
+  { position: 124, name: "[BROT] BROTHERS FLUKE_TESTER", category: "Membro Oficial" },
 ]
 
 const recrutas = [
@@ -142,7 +143,6 @@ const allMembers = [...oficialMembers, ...recrutas]
 const admins = [
   { name: "[BROT] BROTHERS ANDREWWS", role: "Admin", image: "/placeholder.svg?height=200&width=200" },
   { name: "[BROT] BROTHERS ITALOTHIAGO02", role: "Admin", image: "/placeholder.svg?height=200&width=200" },
-  { name: "[BROT] BROTHERS FLUKE_TESTER", role: "Admin", image: "/placeholder.svg?height=200&width=200" },
   { name: "[BROT] BROTHERS TERMOBOX", role: "Admin", image: "/placeholder.svg?height=200&width=200" },
   { name: "[BROT] BROTHERS FERRAZ_VGT", role: "Admin", image: "/placeholder.svg?height=200&width=200" },
 ]
@@ -227,7 +227,7 @@ export default function HomePage() {
           <Card className="bg-card/50 backdrop-blur-sm border-accent/30 p-8 md:p-12">
             <p className="text-lg md:text-xl leading-relaxed text-center text-muted-foreground">
               O <span className="text-accent font-bold">Clã Brothers Oficial</span> oferece o melhor servidor de
-              Battlefield V para jogadores brasileiros. Aqui você encontra{" "}
+              Battlefield V e  Battlefield 6 para jogadores brasileiros. Aqui você encontra{" "}
               <span className="text-foreground font-semibold">comunidade ativa</span>,{" "}
               <span className="text-foreground font-semibold">partidas equilibradas</span> e
               <span className="text-foreground font-semibold">ambiente respeitoso</span>. Nosso servidor está sempre
