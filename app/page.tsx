@@ -7,6 +7,7 @@ import { Shield, Users, Server, ChevronDown } from "lucide-react"
 import { useState } from "react"
 import Image from "next/image"
 
+// --- Definição de Dados ---
 const oficialMembers = [
   { position: 1, name: "[BROT] BROTHERS FELIPE", category: "Membro Oficial" },
   { position: 2, name: "[BROT] BROTHERS TURAKSANN", category: "Membro Oficial" },
@@ -149,15 +150,17 @@ const admins = [
 
 const suporte = { name: "[BROT] BROTHERS FOGONORABO-JH", role: "Suporte" }
 
+// --- Componente da Página ---
 export default function HomePage() {
   const [showAllPlayers, setShowAllPlayers] = useState(false)
+  // Garante que não mostramos mais do que o necessário se houver poucos membros
   const displayedPlayers = showAllPlayers ? allMembers : allMembers.slice(0, 15)
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section */}
+      {/* --- Hero Section --- */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
@@ -165,13 +168,15 @@ export default function HomePage() {
             alt="Battlefield V Background"
             fill
             className="object-cover opacity-50"
-            priority
+            priority // Essencial para a imagem de fundo principal
             quality={100}
           />
+          {/* Gradiente para suavizar a transição com o fundo */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background" />
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+          {/* Linha decorativa com ícone centralizado */}
           <div className="mb-6 inline-block">
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="h-px w-20 bg-accent" />
@@ -180,12 +185,14 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* Título principal */}
           <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-wider text-glow">
             CLÃ BROTHERS
             <span className="block text-accent mt-2">OFICIAL</span>
           </h1>
 
-          <p className="text-xl md:text-3xl font-semibold mb-4 tracking-wide text-muted-foreground">Battlefield V</p>
+          {/* Subtítulo */}
+          <p className="text-xl md:text-3xl font-semibold mb-4 tracking-wide text-muted-foreground">Battlefield V / Battlefield 6 </p>
 
           <p className="text-2xl md:text-3xl font-bold mb-12 tracking-wide">
             JUNTE-SE AO NOSSO SERVIDOR.
@@ -193,6 +200,7 @@ export default function HomePage() {
             DOMINE O CAMPO DE BATALHA.
           </p>
 
+          {/* Botões de Ação */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
@@ -200,41 +208,54 @@ export default function HomePage() {
             >
               ENTRAR NO SERVIDOR
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-lg px-8 py-6 font-bold tracking-wider border-accent text-accent hover:bg-accent hover:text-accent-foreground bg-transparent"
+            <a
+              href="https://discord.gg/sRv4JfUQnB"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              DISCORD
-            </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-lg px-8 py-6 font-bold tracking-wider border-accent text-accent hover:bg-accent hover:text-accent-foreground bg-transparent"
+              >
+                DISCORD
+              </Button>
+            </a>
           </div>
         </div>
 
+        {/* Gradiente inferior para suavizar a borda da seção */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
-      {/* About Section */}
+      {/* --- About Section --- */}
       <section className="py-20 px-4 relative">
+        {/* Fundo gradiente sutil */}
         <div className="absolute inset-0 bg-gradient-radial opacity-30" />
+        {/* Container principal com largura máxima e centralizado */}
         <div className="container mx-auto max-w-6xl relative z-10">
+          {/* Título da Seção */}
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-wider">
               SOBRE O <span className="text-accent">SERVIDOR</span>
             </h2>
+            {/* Linha centralizadora */}
             <div className="h-1 w-32 bg-accent mx-auto mb-8" />
           </div>
 
+          {/* Card principal de informações */}
           <Card className="bg-card/50 backdrop-blur-sm border-accent/30 p-8 md:p-12">
             <p className="text-lg md:text-xl leading-relaxed text-center text-muted-foreground">
               O <span className="text-accent font-bold">Clã Brothers Oficial</span> oferece o melhor servidor de
-              Battlefield V e  Battlefield 6 para jogadores brasileiros. Aqui você encontra{" "}
+              Battlefield V e Battlefield 6 para jogadores brasileiros. Aqui você encontra{" "}
               <span className="text-foreground font-semibold">comunidade ativa</span>,{" "}
               <span className="text-foreground font-semibold">partidas equilibradas</span> e
               <span className="text-foreground font-semibold">ambiente respeitoso</span>. Nosso servidor está sempre
               online com moderação ativa, mapas rotativos e eventos regulares para toda a comunidade.
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
+            {/* Grid de estatísticas (centralizado e responsivo) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
               <div className="text-center">
                 <Users className="w-12 h-12 text-accent mx-auto mb-3" />
                 <div className="text-3xl font-bold text-accent">150+</div>
@@ -245,7 +266,7 @@ export default function HomePage() {
                 <div className="text-3xl font-bold text-accent">24/7</div>
                 <div className="text-sm text-muted-foreground">SERVIDOR ONLINE</div>
               </div>
-              <div className="text-center md:col-span-1 col-span-2">
+              <div className="text-center col-span-1 sm:col-span-2 lg:col-span-1"> {/* Ajustado para melhor responsividade */}
                 <Shield className="w-12 h-12 text-accent mx-auto mb-3" />
                 <div className="text-3xl font-bold text-accent">BR</div>
                 <div className="text-sm text-muted-foreground">SERVIDOR BRASILEIRO</div>
@@ -255,6 +276,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* --- Members Section --- */}
       <section className="py-20 px-4 bg-secondary/30">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
@@ -298,9 +320,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Admin Team */}
+      {/* --- Admin Team Section --- */}
       <section className="py-20 px-4 relative">
         <div className="absolute inset-0 bg-gradient-radial opacity-30" />
+        {/* Container principal centralizado */}
         <div className="container mx-auto max-w-7xl relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-wider">
@@ -310,58 +333,76 @@ export default function HomePage() {
             <p className="text-muted-foreground text-lg">Administração e Suporte</p>
           </div>
 
+          {/* Seção de Administradores */}
           <div className="mb-12">
             <h3 className="text-2xl font-bold text-center mb-8 tracking-wider text-accent">ADMINISTRADORES</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+            {/* Grid responsivo para os cards de administrador.
+                'grid-cols-5' para telas grandes, 'grid-cols-3' para telas médias,
+                e 'grid-cols-1 sm:grid-cols-2' para garantir que pelo menos 2 colunas apareçam em telas pequenas/médias.
+                `justify-center` adicionado para centralizar o grid se ele não preencher toda a largura.
+            */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-8 justify-center">
               {admins.map((admin, index) => (
                 <Card
                   key={index}
-                  className="bg-card/50 backdrop-blur-sm border-accent/30 p-6 text-center hover:border-accent transition-all glow-border"
+                  className="bg-card/50 backdrop-blur-sm border-accent/30 p-6 text-center hover:border-accent transition-all glow-border flex flex-col justify-between" // Adicionado flex para ajudar no alinhamento interno se necessário
                 >
-                  <div className="relative inline-block mb-4">
-                    <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent mx-auto">
-                      <img
-                        src={admin.image || "/placeholder.svg"}
-                        alt={admin.name}
-                        className="w-full h-full object-cover"
-                      />
+                  <div className="flex flex-col items-center">
+                    <div className="relative inline-block mb-4">
+                      <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent mx-auto">
+                        <img
+                          src={admin.image || "/placeholder.svg"}
+                          alt={admin.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      {/* Ícone de escudo centralizado abaixo da imagem */}
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-accent px-3 py-1 rounded-sm z-10">
+                        <Shield className="w-4 h-4 text-accent-foreground" />
+                      </div>
                     </div>
-                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-accent px-3 py-1 rounded-sm">
-                      <Shield className="w-4 h-4 text-accent-foreground" />
-                    </div>
+                    <h3 className="text-lg font-bold mb-2 break-words">{admin.name}</h3>
                   </div>
-                  <h3 className="text-lg font-bold mb-2 break-words">{admin.name}</h3>
-                  <p className="text-sm text-accent font-semibold tracking-wide">{admin.role.toUpperCase()}</p>
+                  <p className="text-sm text-accent font-semibold tracking-wide mt-auto"> {/* mt-auto empurra para baixo */}
+                    {admin.role.toUpperCase()}
+                  </p>
                 </Card>
               ))}
             </div>
           </div>
 
+          {/* Seção de Suporte */}
           <div className="mt-12">
             <h3 className="text-2xl font-bold text-center mb-8 tracking-wider text-accent">SUPORTE</h3>
+            {/* Flexbox para centralizar o único card de suporte */}
             <div className="flex justify-center">
-              <Card className="bg-card/50 backdrop-blur-sm border-accent/30 p-6 text-center hover:border-accent transition-all glow-border max-w-xs">
-                <div className="relative inline-block mb-4">
-                  <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent mx-auto">
-                    <img
-                      src="/placeholder.svg?height=200&width=200"
-                      alt={suporte.name}
-                      className="w-full h-full object-cover"
-                    />
+              <Card className="bg-card/50 backdrop-blur-sm border-accent/30 p-6 text-center hover:border-accent transition-all glow-border max-w-xs flex flex-col justify-between">
+                <div className="flex flex-col items-center">
+                  <div className="relative inline-block mb-4">
+                    <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent mx-auto">
+                      <img
+                        src="/placeholder.svg?height=200&width=200"
+                        alt={suporte.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    {/* Ícone de usuários centralizado abaixo da imagem */}
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-accent px-3 py-1 rounded-sm z-10">
+                      <Users className="w-4 h-4 text-accent-foreground" />
+                    </div>
                   </div>
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-accent px-3 py-1 rounded-sm">
-                    <Users className="w-4 h-4 text-accent-foreground" />
-                  </div>
+                  <h3 className="text-lg font-bold mb-2 break-words">{suporte.name}</h3>
                 </div>
-                <h3 className="text-lg font-bold mb-2 break-words">{suporte.name}</h3>
-                <p className="text-sm text-accent font-semibold tracking-wide">{suporte.role.toUpperCase()}</p>
+                <p className="text-sm text-accent font-semibold tracking-wide mt-auto"> {/* mt-auto empurra para baixo */}
+                  {suporte.role.toUpperCase()}
+                </p>
               </Card>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Video Section */}
+      {/* --- Video Section --- */}
       <section className="py-20 px-4 bg-secondary/30">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
@@ -386,13 +427,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* --- Footer --- */}
       <footer className="py-12 px-4 bg-black/80 border-t border-accent/30">
         <div className="container mx-auto text-center">
           <div className="mb-6">
             <Shield className="w-12 h-12 text-accent mx-auto mb-4" />
             <h3 className="text-2xl font-bold tracking-wider mb-2">CLÃ BROTHERS OFICIAL</h3>
-            <p className="text-sm text-muted-foreground">Battlefield V</p>
+            <p className="text-sm text-muted-foreground">Battlefield V / Battlefield 6</p>
           </div>
 
           <div className="border-t border-border pt-6">
