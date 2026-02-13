@@ -201,27 +201,22 @@ export default function HomePage() {
           </p>
 
           {/* Botões de Ação */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://discord.gg/sRv4JfUQnB"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button
               size="lg"
+              // Removemos a prop 'variant="outline"' para ele ter cor de fundo
+              // E aplicamos as classes de cor do botão original (bg-accent)
               className="text-lg px-8 py-6 font-bold tracking-wider bg-accent hover:bg-accent/90 text-accent-foreground"
             >
-              ENTRAR NO SERVIDOR
+              ENTRAR NO DISCORD
             </Button>
-            <a
-              href="https://discord.gg/sRv4JfUQnB"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-lg px-8 py-6 font-bold tracking-wider border-accent text-accent hover:bg-accent hover:text-accent-foreground bg-transparent"
-              >
-                DISCORD
-              </Button>
-            </a>
-          </div>
+          </a>
+        </div>
         </div>
 
         {/* Gradiente inferior para suavizar a borda da seção */}
@@ -402,30 +397,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* --- Video Section --- */}
-      <section className="py-20 px-4 bg-secondary/30">
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-wider">
-              VÍDEO DO <span className="text-accent">SERVIDOR</span>
-            </h2>
-            <div className="h-1 w-32 bg-accent mx-auto mb-8" />
-          </div>
-
-          <Card className="bg-card/50 backdrop-blur-sm border-accent/30 overflow-hidden">
-            <div className="aspect-video bg-black/50 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-20 h-20 rounded-full bg-accent/20 border-2 border-accent flex items-center justify-center mx-auto mb-4 hover:bg-accent/30 transition-colors cursor-pointer">
-                  <svg className="w-10 h-10 text-accent ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <p className="text-muted-foreground">Trailer do Servidor (Em breve)</p>
-              </div>
-            </div>
-          </Card>
+    {/* --- Video Section --- */}
+    <section className="py-20 px-4 bg-secondary/30">
+      <div className="container mx-auto max-w-5xl">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-wider">
+            CLÃ EM <span className="text-accent"> AÇÃO</span>
+          </h2>
+          <div className="h-1 w-32 bg-accent mx-auto mb-8" />
         </div>
-      </section>
+
+        {/* Área do Card com o Vídeo */}
+        <Card className="bg-card/50 backdrop-blur-sm border-accent/30 overflow-hidden">
+          {/* A classe aspect-video mantém o formato 16:9 perfeito */}
+          <div className="aspect-video w-full">
+            <iframe
+              className="w-full h-full"
+              // ⚠️ IMPORTANTE: Substitua 'ASzOzrB-a9E' pelo ID do seu vídeo do servidor quando tiver pronto
+              // Exemplo: se o link é youtube.com/watch?v=XYZ123, o ID é XYZ123
+              src="https://www.youtube.com/embed/ND3W1dZ0xxs" 
+              title="CLÃEMAÇÃO"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </Card>
+      </div>
+    </section>
 
       {/* --- Footer --- */}
       <footer className="py-12 px-4 bg-black/80 border-t border-accent/30">
